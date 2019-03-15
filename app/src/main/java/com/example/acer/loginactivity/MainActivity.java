@@ -9,7 +9,7 @@ import android.widget.Button;
 import android.widget.EditText;
 
 public class MainActivity extends AppCompatActivity {
-    EditText e1,e2,e3;
+    EditText ed1,e2,e3;
     Button b1;
     SharedPreferences sharedPreferences;
     private String spFileName="com.example.acer.loginactivity";
@@ -20,12 +20,12 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        e1 = findViewById(R.id.name);
+        ed1 = findViewById(R.id.name);
         e2 = findViewById(R.id.mail);
         e3 = findViewById(R.id.password);
         b1 = findViewById(R.id.sub);
         sharedPreferences=getApplicationContext().getSharedPreferences(spFileName,MODE_PRIVATE);
-       e1.setText(sharedPreferences.getString("Name",""));
+       ed1.setText(sharedPreferences.getString("Name",""));
         e2.setText(sharedPreferences.getString("Mail",""));
         e3.setText(sharedPreferences.getString("Password",""));
 
@@ -47,7 +47,7 @@ public class MainActivity extends AppCompatActivity {
         SharedPreferences.Editor editor=sharedPreferences.edit();
         st1=e2.getText().toString();
         st2=e3.getText().toString();
-        st3=e1.getText().toString();
+        st3=ed1.getText().toString();
 
         editor.putString("Name",st3);
         editor.putString("Mail", st1);
